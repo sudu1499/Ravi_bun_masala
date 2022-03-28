@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='queue.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+
+    <h2 style="color: white;margin:50px;font-size:15px">*Rfresh regularly to get updated queue table and status table</h2>
+    <div class="content">
+        <table>
+            <caption style="color:aliceblue">QUEUE LIST</caption>
+            <thead><tr>
+                <th>Name</th>
+                <th>email</th>
+                <th>item</th>
+                <th>count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in r%}
+            <tr>
+                <td data-label="name">{{i.0}}</td>
+                <td data-label="email">{{i.1}}</td>
+                <td data-label="dish">{{i.2}}</td>
+                <td data-label="count">{{i.3}}</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+        
+    </table></div>
+    <div class="content">
+        <table>
+            <caption style="color:aliceblue">LIST OF COMPLEATED ORDER</caption>
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Item</th>
+                <th>status</th>
+            </thead>
+            <tbody>
+                {%for i in s %}
+                <tr>
+                    <td data-label="name">{{i.0}}</td>
+                    <td data-label="email">{{i.1}}</td>
+                    <td data-label="dish">{{i.2}}</td>
+                    <td data-label="status">{{i.3}}</td>
+                </tr>
+                {%endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    
+
+    <script src="{{url_for('static',filename='queue.js')}}"></script>
+</body>
+</html>

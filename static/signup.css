@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Righteous', cursive;
+
+}
+nav{
+    position: relative;
+    display: flex;
+    place-items: center;
+    background-color: rgba(65, 62, 62,.9);
+    color:white;
+    font-size: 20px;
+    justify-content: space-between;
+    min-height: 60px;
+    width: 100vw;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    box-shadow: 0px 20px 20px rgb(19, 2, 2);
+
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style: none;
+    margin:10px;
+}
+a{
+    text-decoration: none;
+    color:white
+}
+.ll{
+    margin-left: 20px;
+}
+.ll:hover,nav ul li a:hover{
+    text-shadow: 10px 10px 10px rgb(255, 255, 255);
+}
+.burger{
+    position: absolute;
+    top:5px;
+    right: 0px;
+    display: none;
+}
+.b{
+    background-color: aliceblue;
+    width: 30px;
+    height: 3px;
+    margin:10px;
+}
+.signup{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(65, 62, 62,.1);
+     max-width:400px; 
+    margin:100px auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgb(19, 2, 2);
+    font-size: 22px;
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+@media only screen and (max-width:850px) {
+    .links{
+        display: none;
+        margin-top: 20px;
+    }
+    .burger{
+        display: block;
+    }
+    nav,nav ul{
+        flex-direction: column;
+        text-align: center;
+        align-items: flex-start;
+    }
+    nav ul,nav ul li{
+        width:100vw;
+    }
+    nav .ll{
+        position: relative;
+        top:20px;
+    }
+    nav{
+        justify-items: center;
+    }
+    .ll{
+        align-items: flex-start;
+    }
+    .active_link{
+        display:inline;
+    }
+    .signup{
+        height:500px;
+    }
+}
+
+input{
+    font-size: 22px;
+    /* background-color: rgba(65, 62, 62,.1); */
+}
+button{
+    font-size: 22px;
+    width: 220px;
+    height: 35px;
+}
+#i1,#i2,#cnameid{
+    margin: 10px auto 30px auto;
+}
+.signup:hover{
+    box-shadow: 20px 20px 20px rgb(19, 2, 2);
+    background-image: linear-gradient(to left bottom, rgba(255, 0, 0, 0.4),rgba(0, 26, 255, 0.4));
+
+}
+#mainname{
+    display: flex;
+    align-items: flex-start;
+    font-size: 23px;
+    color:white;
+    justify-content: space-around;
+}
+label{
+    color: white;
+}
+#result{
+    color:red;
+    font-size: 20px;
+}body{
+    background-image: linear-gradient(to left ,rgb(123, 77, 247) ,rgb(248, 23, 23));
+}

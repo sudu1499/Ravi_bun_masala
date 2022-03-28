@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>   
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    <div class="cover">
+        <figure>
+            <img src="/static/ravi_cover.jpg" alt="ravi_cover">
+            <img src="/static/ravi_cover2.jpg" alt="ravi_cover">
+            <img src="/static/ravi_cover.jpg" alt="ravi_cover">
+            <img src="/static/ravi_cover2.jpg" alt="ravi_cover">
+        </figure>
+
+    </div>
+    <div class="container">
+        <div id="d1" class="dishes">
+            <div class="subc"><img src="/static/bun masala.jpg" alt="bun masala"></div>
+            <h2 class="hd">BUN MASALA</h2><h2>Two bun sandiwtched with nippattu with spicy paste!</h2><h2 >30.00₹</h2>
+            <form action="" method="POST">
+                <input type="radio" class="dish" name="dish" value="bun masala" checked>
+                <button class="db" onclick="$.ajax({type:'POST',url:'addto',data:{'item':'bun masala'}});alert('bun masala added');return false">ADD TO CART</button>
+            </form>
+        </div>
+        <div id="d2" class="dishes"><div class="subc"><img src="/static/nippattu masala.jpg" alt="nippattu"></div>
+        <h2 class="hd">NIPPATTU</h2><h2>Nippattu applied with spicy paste on it</h2><h2>20.00₹</h2>
+            <form action="home" method="POST">
+                <input type="radio" name="dish" value="nippattu masala" checked class="dish">
+                <button class="db" onclick="$.ajax({type:'POST',url:'addto',data:{'item':'nippattu masala'}});alert('nippattu masala added');return false">ADD TO CART</button>
+            </form>
+        </div>
+        <div id="d3" class="dishes">
+            <div class="subc"><img src="/static/kalu masala.jpg" alt="kalu masala"></div>
+            <h2 class="hd">KALU</h2><h2>boiled kalu with tasty masala</h2><h2>35.00₹</h2>
+            <form action="home" method="POST">
+                <input type="radio" name="dish" value="kalu masala" checked class="dish">
+                <button class="db" onclick="$.ajax({type:'POST',url:'addto',data:{'item':'kalu masala'}});alert('kalu masala added');return false">ADD TO CART</button>
+            </form>
+        </div>
+        <div id="d4" class="dishes">
+            <div class="subc"><img src="/static/shev masala.jpg" alt="shev masala"></div>
+            <h2 class="hd">SHEV MASALA</h2><h2>bundi kalu with tasty masala</h2><h2>40.00₹</h2>
+            <form action="home" method="POST">
+                <input type="radio" name="dish" value="shev masala" checked class="dish">
+                <button class="db" onclick="$.ajax({type:'POST',url:'addto',data:{'item':'shev masala'}});alert('shev masala added');return false">ADD TO CART</button>
+            </form>
+            </div>
+        <div id="d5" class="dishes">
+            <div class="subc"><img src="/static/soda masala.jpg" alt="soda masala"></div>
+            <h2 class="hd">SODA MASALA</h2><h2>chilled cold soda with different flavors</h2><h2>25.00₹</h2>
+            <form action="home" method="POST">
+                <input type="radio" name="dish" value="soda masala" checked class="dish">
+                <button class="db" onclick="$.ajax({type:'POST',url:'addto',data:{'item':'soda masala'}});alert('soda masala added');return false">ADD TO CART</button>
+            </form>
+        </div>
+        <div id="d6" class="dishes"></div>
+        <div id="d7" class="dishes"></div>
+        <div id="d8" class="dishes"></div>
+        <div id="d9" class="dishes"></div>
+        <div id="d10" class="dishes"></div>
+    </div>
+    <script src="{{url_for('static',filename='home.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</body>
+</html>

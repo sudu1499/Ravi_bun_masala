@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='ravi.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <table>
+            <thead>
+                <th >name</th>
+                <th>email</th>
+                <th >item</th>
+                <th>count</th>
+                <th>action</th>
+            </thead>
+            <tbody>
+                {%for i in r %}
+                <tr>
+                    <td data-label="name">{{i.0}}</td>
+                    <td  data-label="email">{{i.1}}</td>
+                    <td data-label="item">{{i.2}}</td>
+                    <td  data-label="count">{{i.3}}</td>
+                    <td   data-label="action">
+                        <form action="done" method="POST">
+                            <input type="radio" value="{{i.0}},{{i.1}},{{i.2}},{{i.3}},{{i.4}}" class='dish' name="dish" checked>
+                            <button class="done">DONE</button>
+                        </form>
+                    </td>
+                </tr>
+                {%endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="{{url_for('static',filename='ravi.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='location.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    <div class="locate">
+        <div class="s1">
+            <h1>Ravi Chats</h1>
+            <h1>Phone-number:96969696</h1>
+            <h1>email:ravi@gmail.com</h1>
+        </div>
+            <div class="s2">
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.290116218691!2d75.54599886158549!3d13.941323672361218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbba8b4b6a89e83%3A0xe204590ef793f6f0!2sRavi%20Chats!5e0!3m2!1sen!2sin!4v1647585529138!5m2!1sen!2sin" 
+                 style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+    
+    
+    </div>
+    <script src="{{url_for('static',filename='location.js')}}"></script>
+    
+</body>
+</html>

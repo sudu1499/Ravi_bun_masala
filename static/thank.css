@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Righteous', cursive;
+
+}
+nav{
+    position: relative;
+    display: flex;
+    place-items: center;
+    background-color: rgba(65, 62, 62,.9);
+    color:white;
+    font-size: 20px;
+    justify-content: space-between;
+    min-height: 60px;
+    width: 100vw;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    box-shadow: 0px 20px 20px rgb(19, 2, 2);
+
+    
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style: none;
+    margin:10px;
+}
+a{
+    text-decoration: none;
+    color:white
+}
+.ll{
+    margin-left: 20px;
+}
+.ll:hover,nav ul li a:hover{
+    text-shadow: 10px 10px 10px rgb(255, 255, 255);
+}
+.burger{
+    position: absolute;
+    top:5px;
+    right: 0px;
+    display: none;
+}
+.b{
+    background-color: aliceblue;
+    width: 30px;
+    height: 3px;
+    margin:10px;
+}
+#btn{
+    width:40%;
+    height: 40px;
+    margin:auto;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+.tq{
+    margin:100px auto;
+    max-width: 40vw;
+    height: 500px;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+
+}
+@media only screen and (max-width:850px) {
+    .links{
+        display: none;
+        margin-top: 20px;
+    }
+    .burger{
+        display: block;
+    }
+    nav,nav ul{
+        flex-direction: column;
+        text-align: center;
+        align-items: flex-start;
+    }
+    nav ul,nav ul li{
+        width:100vw;
+    }
+    nav .ll{
+        position: relative;
+        top:20px;
+    }
+    nav{
+        justify-items: center;
+    }
+    .ll{
+        align-items: flex-start;
+    }
+    .active_link{
+        display:inline;
+    }
+    #btn{
+        width:90%;
+    }
+    .tq{
+        max-width: 100%;
+    }
+}
+
+body{
+    background-image: linear-gradient(to left ,rgb(123, 77, 247) ,rgb(248, 23, 23));
+}
+
+.tq h1{
+    margin: auto;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='thank.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>   
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    <div class="tq"><h1>Thank you we got ur payment and order</h1>
+    <button onclick="window.location.replace('home')" id="btn">Want some more?</button></div>
+    <script src="{{url_for('static',filename='thank.js')}}"></script>
+</body>
+</html>

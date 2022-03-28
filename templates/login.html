@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='login.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    <div class="login">
+        <form action="validate" method="POST"> 
+            <label id="mainname">LOGIN</label>
+        <br>
+            <label for="i1">Email id</label><br><i class="fa fa-user-circle-o" style="margin-right:10px;color:white"></i><input type="email" name="eid" placeholder="email-id" id="i1"  required>
+            <h1 id="result" style="color:red">{{ result1 }}</h1>
+            <br><label for="i2">Password</label><br><i class="fa fa-key" style="margin-right:10px;color:white"></i><input type="password" name="pswd" placeholder='password' id="i2" required><br>
+            <button class="loginb">Log In</button><br>
+            <a href="signup" style="font-size: 15px;text-decoration:underline;">Not have an account?</a>
+            <h1 id="result" style="color:red">{{ result2 }}</h1>
+            </form>
+    </div>
+    <script src="{{url_for('static',filename='login.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Bun Masala</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='pay.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="ll"><a href="home">ravi snacks</a></div>
+        <div class="links">
+            <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="locate">location</a></li>
+            <li><a href="queue">queue</a></li>
+            <li><a href="cart">cart</a></li>
+            {%if 'email' not in session%}
+            <li><a href="login">login</a></li>
+            <li><a href="signup">signup</a></li>
+            {%else%}
+            <li><a href="logout">logout</a></li>
+            {%endif%}
+        </ul>
+        </div>
+        <div class="burger">
+            <div class="b"></div>   
+            <div class="b"></div>
+            <div class="b"></div>
+        </div>
+    </nav>
+    <div class="info">
+        <!-- <form action="">    
+            <label for="name">Name</label><br>
+            <input type="text" id="name" required placeholder="name"><br>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" value="{{session['email']}}" required><br>
+            <label for="phone" >Phone no</label><br>
+            <input type="number" id="phone" required placeholder="phone number"><br>
+        </form> -->
+        <table>
+            <thead>
+                <th>Item</th>
+                <th>count</th>
+            </thead>
+            <tbody>
+        {% for i in f%}
+                <tr>
+                    <th>{{i[2]}}</th>
+                    <th>{{i[3]}}</th>
+                </tr>
+        {%endfor%}
+            </tbody>
+        </table>
+        <h3 id="total">Total amount={{session['total']}}.00₹</h3>        
+        <button id='rzp-button1'>Pay Using Razorpay</button>
+    </div>
+    <script src="{{url_for('static',filename='thank.js')}}"></script>
+</body>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+    
+    var options = {
+        "key": "rzp_test_aynu7XqQ7ECJHs", // Enter the Key ID generated from the Dashboard
+        "amount": "{{session['total']*100}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "RAVI CHATS",
+        "description": "Food with Taste and Quality",
+        "order_id": "{{p['id']}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 2
+        "handler": function (response){
+            $.ajax({
+                type:'POST',
+                url:'{{url_for("pay_done")}}',
+                data:{"razorpay_payment_id":response.razorpay_payment_id,
+                'razorpay_order_id':response.razorpay_order_id,
+            'razorpay_signature':response.razorpay_signature}
+            })
+            window.location.replace("tq");  
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+    
+    </script>
+</html>
