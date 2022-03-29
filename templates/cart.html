@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <nav>
@@ -48,19 +50,12 @@
                     <form action="checkout" method="POST">
                         <h2>{{i|upper}}-{{session['cost'][i]}}.00₹/plate</h2>
                         <label for="qt">quantity</label>
-                        <input type="hidden" name="qt" value='{{i}}'  style="display: none;">
-                        <input type="number" placeholder="quantity" name="qt" class="qt" required><br>
-                        <!-- <input type="radio" name="mode" value="parcel" required><label for="mode">Parcel</label><br>
-                        <input type="radio" name="mode" value="spot" required><label for="mode">OnSpot</label><br> -->
-                        <!-- <button class="plo" name="action" value="plo">PLACE ORDER</button > -->
-                            
-                            <!-- <form action="" method="POST" style="float: right;">
-                                <input type="radio" name="dish" value='{{i}}' checked style="display: none;">
-                                <button class='plo' name="action" value='remove'>REMOVE FROM CART</button></form> -->
-                                
-                                <input type="button" value="remove from cart"  onclick="$.ajax({
-                                    type:'POST',url:'remove_item',data:{'item':'{{i}}' },success:function(response){window.location.replace('cart')}
-                                })" style="width:150px;height:30px;margin:30px auto 30px 25px;font-size:15px;box-shadow:0 0 5px black">
+                        <input type="hidden" name="qt" value='{{i}}'  style="display: none;"><br>
+                        <input type="number" placeholder="quantity" name="qt" class="qt" required style="margin-left:20px;height:35px">
+                        <button style="width:30px;height: 35px;background-color:rgba(1,1,1,.1);margin-top:20px" onclick="$.ajax({
+                            type:'POST',url:'remove_item',data:{'item':'{{i}}' },success:function(response){window.location.replace('cart')}})">
+                            <i class="fa fa-trash"  style="font-size:18px;color:white" ></i></button>
+
                         </div>
                     </div>
                     {%endif%}

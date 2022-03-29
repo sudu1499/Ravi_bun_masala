@@ -66,6 +66,7 @@ a{
     padding: 10px;
     overflow: scroll;
     overflow-x: hidden;
+    border-radius: 20px;
 }
 table{
     width:100%;
